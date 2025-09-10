@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Início - Estacionamento{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1>Bem-vindo ao Sistema de Estacionamento</h1>
+        <a href="#" class="btn btn-primary">Entrar no sistema</a>
+
+
+      
+     
+
+    </div>
+    <img src="{% static 'estacionamento.png' %}" 
+    class="img-fluid mx-auto d-block mt-4" 
+    style="width: 80%; max-height: 500px; object-fit: cover;"
+    alt="Imagem de estacionamento">
+
+{% endblock %}
+
