@@ -21,6 +21,7 @@ class PessoaJuridica(Pessoa):
         
 class Cliente(Pessoa):
     tipoCliente = models.CharField(max_length=20)
+    # veiculos = models.ManyToManyField('Veiculo', related_name='clientes', blank=True)
         
     class Meta:
         verbose_name = 'Cliente'
