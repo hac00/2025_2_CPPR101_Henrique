@@ -26,9 +26,10 @@ class Cliente(Pessoa):
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
+        ordering = [Upper('nome')]
 
     def __str__(self):
-        return self.nome
+        return super().nome
 
 class Funcionario(PessoaFisica):
     tipoFuncionario = models.CharField(max_length=20)
@@ -37,7 +38,8 @@ class Funcionario(PessoaFisica):
     class Meta:
         verbose_name = 'Funcionário'
         verbose_name_plural = 'Funcionários'
+        ordering = [Upper('nome')]
 
     def __str__(self):
-        return self.nome
+        return super().nome
     

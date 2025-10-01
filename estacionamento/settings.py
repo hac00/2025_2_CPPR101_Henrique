@@ -43,8 +43,8 @@ INSTALLED_APPS += [
     'core',
     'pessoas',
     'veiculos',
+    'estadias',
     'estacionamento_app',
-    'empresa',
 ]
 
 INSTALLED_APPS += [
