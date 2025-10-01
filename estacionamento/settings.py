@@ -37,15 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
 ]
 
 INSTALLED_APPS += [
-    'clientes',
-    'empresa',
-    'funcionarios',
+    'core',
+    'pessoas',
     'veiculos',
     'estacionamento_app',
+    'empresa',
 ]
 
 INSTALLED_APPS += [

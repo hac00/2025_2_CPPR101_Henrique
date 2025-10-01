@@ -12,22 +12,32 @@ class Pessoa(models.Model):
     
     class Meta:
         abstract = True
-        
+
 class PessoaFisica(Pessoa):
     cpf = models.CharField(max_length=14)
-    
+
 class PessoaJuridica(Pessoa):
     cnpj = models.CharField(max_length=14)
-        
+
 class Cliente(Pessoa):
     tipoCliente = models.CharField(max_length=20)
     # veiculos = models.ManyToManyField('Veiculo', related_name='clientes', blank=True)
-        
+
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
-            
+
     def __str__(self):
         return self.nome
-        
+
+class Funcionario(PessoaFisica):
+    tipoFuncionario = models.CharField(max_length=20)
+    salario = models.DecimalField(max_digits=10, decimal_places=2)
+
+    class Meta:
+        verbose_name = 'Funcionário'
+        verbose_name_plural = 'Funcionários'
+
+    def __str__(self):
+        return self.nome
     
