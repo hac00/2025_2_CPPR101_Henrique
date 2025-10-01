@@ -4,19 +4,20 @@
 {% block title %}Início - Estacionamento{% endblock %}
 
 {% block content %}
-    <div class="text-center">
-        <h1>Bem-vindo ao Sistema de Estacionamento</h1>
-        <a href="#" class="btn btn-primary">Entrar no sistema</a>
+<div class="text-center mt-5">
+    <h1>Bem-vindo ao Sistema de Estacionamento</h1>
+    <p class="lead mb-4">Escolha uma opção para cadastrar um cliente:</p>
 
-
-
-
-
+    <!-- Botões de cadastro -->
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'clientes_pj_cadastrar' %}" class="btn btn-primary btn-lg">Cadastrar PJ</a>
+        <a href="{% url 'clientes_pf_cadastrar' %}" class="btn btn-secondary btn-lg">Cadastrar PF</a>
     </div>
+
+    <!-- Imagem de estacionamento -->
     <img src="{% static 'estacionamento.png' %}"
-    class="img-fluid mx-auto d-block mt-4"
-    style="width: 80%; max-height: 500px; object-fit: cover;"
-    alt="Imagem de estacionamento">
-
+         class="img-fluid mx-auto d-block mt-5"
+         style="width: 80%; max-height: 500px; object-fit: cover;"
+         alt="Imagem de estacionamento">
+</div>
 {% endblock %}
-

@@ -21,7 +21,8 @@ class PessoaJuridica(Pessoa):
 
 class Cliente(Pessoa):
     tipoCliente = models.CharField(max_length=20)
-    # veiculos = models.ManyToManyField('Veiculo', related_name='clientes', blank=True)
+    pessoa_fisica = models.ForeignKey(PessoaFisica, on_delete=models.CASCADE, null=True, blank=True, related_name='clientes_pf')
+    pessoa_juridica = models.ForeignKey(PessoaJuridica, on_delete=models.CASCADE, null=True, blank=True, related_name='clientes_pj')
 
     class Meta:
         verbose_name = 'Cliente'

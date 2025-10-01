@@ -9,6 +9,6 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('', include('clientes.urls')),
     path('', include('core.urls')),
+    path('pessoas/', include('pessoas.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

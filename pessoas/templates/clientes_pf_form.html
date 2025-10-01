@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="text-center">Cadastrar Cliente Pessoa Física</h2>
+<div class="container mt-5 d-flex justify-content-center py-3">
+<form method="POST">
+    {% csrf_token %}
+
+    <fieldset>
+        <legend>Dados da Pessoa Física</legend>
+        {{ form_pessoa.non_field_errors }}
+        <div>
+            {{ form_pessoa.cpf.label_tag }}<br>
+            {{ form_pessoa.cpf }}
+            {{ form_pessoa.cpf.errors }}
+        </div>
+        <div>
+            {{ form_pessoa.telefone.label_tag }}<br>
+            {{ form_pessoa.telefone }}
+            {{ form_pessoa.telefone.errors }}
+        </div>
+        <div>
+            {{ form_pessoa.email.label_tag }}<br>
+            {{ form_pessoa.email }}
+            {{ form_pessoa.email.errors }}
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Cliente</legend>
+        {{ formset.non_form_errors }}
+        {% for form in formset.forms %}
+            {{ form.id }}
+            <div>
+                {{ form.pessoa_fisica.label_tag }}<br>
+                {{ form.pessoa_fisica }}
+                {{ form.pessoa_fisica.errors }}
+            </div>
+        {% endfor %}
+    </fieldset>
+
+    <button class="btn btn-primary" type="submit">Salvar</button>
+    <button class="btn btn-danger" type="submit">Cancelar</button>
+</div>
+</form>
+{% endblock %}

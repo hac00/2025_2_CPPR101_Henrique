@@ -2,7 +2,7 @@ from django.db import models
 
 from veiculos.models import Veiculo
 from estacionamento_app.models import Estacionamento
-from pessoas.funcionarios import Funcionario
+from pessoas.models import Funcionario
 
 class VagaEstacionamento(models.Model):
     estacionamento = models.ForeignKey(Estacionamento, on_delete=models.CASCADE, related_name='estadias')
