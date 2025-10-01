@@ -1,3 +1,6 @@
+from django.contrib import messages
+from django.core.paginator import Paginator
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import TemplateResponseMixin, View
 from .forms import (
@@ -5,7 +8,8 @@ from .forms import (
     ClientePFInlineFormset, ClientePJInlineFormset
 )
 from .models import PessoaFisica, PessoaJuridica
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+
 
 class PessoasView(TemplateView):
     template_name = 'pessoas.html'
@@ -63,3 +67,21 @@ class ClientePJCreateView(TemplateResponseMixin, View):
             formset.save()
             return redirect('clientes:list')
         return self.render_to_response({'form_pessoa': form_pessoa, 'formset': formset})
+
+class ClientesPFListView(ListView):
+    model = PessoaFisica
+    template_name = 'clientes_visualizar.html'
+
+    def get_queryset(self):
+        buscar = self.request.GET.get('buscar')
+        qs = super(ClientesPFListView, self).get_queryset()
+
+        if buscar:
+            qs = qs.filter(nome__icontains=buscar)
+
+        if qs.count() > 0:
+            paginator = Paginator(qs, 5)
+            listagem = paginator.get_page(self.request.GET.get('page'))
+            return listagem
+        else:
+            return messages.info(self.request, 'Não existem clientes cadastrados!')
