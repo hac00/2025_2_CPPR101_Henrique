@@ -5,6 +5,16 @@ from .forms import (
     ClientePFInlineFormset, ClientePJInlineFormset
 )
 from .models import PessoaFisica, PessoaJuridica
+from django.views.generic import TemplateView
+
+class PessoasView(TemplateView):
+    template_name = 'pessoas.html'
+
+class ClientesView(TemplateView):
+    template_name = 'clientes.html'
+
+class FuncionariosView(TemplateView):
+    template_name = 'funcionarios.html'
 
 class ClientePFCreateView(TemplateResponseMixin, View):
     template_name = 'clientes_pf_form.html'
