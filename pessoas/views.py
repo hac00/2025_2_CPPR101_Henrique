@@ -17,7 +17,7 @@ class FuncionariosView(TemplateView):
     template_name = 'funcionarios.html'
 
 class ClientePFCreateView(TemplateResponseMixin, View):
-    template_name = 'clientes_pf_form.html'
+    template_name = 'cliente_pf_form.html'
 
     def get_formset(self, data=None):
         return ClientePFInlineFormset(instance=self.pessoa, data=data)
@@ -37,11 +37,11 @@ class ClientePFCreateView(TemplateResponseMixin, View):
             self.pessoa = form_pessoa.save()
             formset.instance = self.pessoa
             formset.save()
-            return redirect('clientes:list')
+            return redirect('pessoas')
         return self.render_to_response({'form_pessoa': form_pessoa, 'formset': formset})
 
 class ClientePJCreateView(TemplateResponseMixin, View):
-    template_name = 'clientes_pj_form.html'
+    template_name = 'cliente_pj_form.html'
 
     def get_formset(self, data=None):
         return ClientePJInlineFormset(instance=self.pessoa, data=data)

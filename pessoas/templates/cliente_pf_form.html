@@ -11,6 +11,11 @@
         <legend>Dados da Pessoa Física</legend>
         {{ form_pessoa.non_field_errors }}
         <div>
+            {{ form_pessoa.nome.label_tag }}<br>
+            {{ form_pessoa.nome }}
+            {{ form_pessoa.nome.errors }}
+        </div>
+        <div>
             {{ form_pessoa.cpf.label_tag }}<br>
             {{ form_pessoa.cpf }}
             {{ form_pessoa.cpf.errors }}
@@ -29,6 +34,7 @@
 
     <fieldset>
         <legend>Cliente</legend>
+        {{ formset.management_form }}
         {{ formset.non_form_errors }}
         {% for form in formset.forms %}
             {{ form.id }}
@@ -42,6 +48,6 @@
 
     <button class="btn btn-primary" type="submit">Salvar</button>
     <button class="btn btn-danger" type="submit">Cancelar</button>
-</div>
 </form>
+</div>
 {% endblock %}
