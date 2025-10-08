@@ -33,17 +33,14 @@
     </fieldset>
 
     <fieldset>
-        <legend>Cliente</legend>
+{#        <legend>Cliente</legend#}
         {{ formset.management_form }}
         {{ formset.non_form_errors }}
         {% for form in formset.forms %}
-            {{ form.id }}
-            <div>
-                {{ form.pessoa_fisica.label_tag }}<br>
-                {{ form.pessoa_fisica }}
-                {{ form.pessoa_fisica.errors }}
-            </div>
-        {% endfor %}
+  <p>Label: {{ form.pessoa_fisica.label }}</p>
+  <p>Campo: {{ form.pessoa_fisica }}</p>
+{% endfor %}
+
     </fieldset>
 
     <button class="btn btn-primary" type="submit">Salvar</button>

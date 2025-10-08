@@ -16,17 +16,25 @@
 {#    </div>#}
 {#</div>#}
 
-<div class="container mt-5 d-flex justify-content-center py-3 mb-4">
+<div class="container d-flex justify-content-center py-3">
     <div class="d-flex justify-content-center gap-3">
-        <a href="{% url 'cliente_pj_cadastrar' %}" class="btn btn-primary btn-lg">Cadastrar Pessoa Juridica</a>
-        <a href="#" class="btn btn-primary btn-lg">Visualizar Pessoa Juridica</a>
+        <a href="{% url 'cliente_pf_cadastrar' %}" class="btn btn-secondary btn-lg">
+            <i class="bi bi-person-plus me-2"> Cadastrar Pessoa Física</i>
+        </a>
+        <a href="{% url 'clientes_visualizar' %}" class="btn btn-secondary btn-lg">
+            <i class="bi bi-eye me-2"> Visualizar Pessoa Fisica</i>
+        </a>
     </div>
 </div>
 
-<div class="container d-flex justify-content-center py-3">
+<div class="container mt-5 d-flex justify-content-center py-3 mb-4">
     <div class="d-flex justify-content-center gap-3">
-        <a href="{% url 'cliente_pf_cadastrar' %}" class="btn btn-secondary btn-lg">Cadastrar Pessoa Fisica</a>
-        <a href="{% url 'clientes_visualizar' %}" class="btn btn-secondary btn-lg">Visualizar Pessoa Fisica</a>
+        <a href="{% url 'cliente_pj_cadastrar' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-building me-2"> Cadastrar Pessoa Juridica</i>
+        </a>
+        <a href="{% url 'clientes_visualizar' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-eye me-2"> Visualizar Pessoa Juridica</i>
+        </a>
     </div>
 </div>
 

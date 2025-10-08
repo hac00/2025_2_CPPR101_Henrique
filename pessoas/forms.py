@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import ModelForm
 from .models import PessoaFisica, PessoaJuridica, Cliente
 from django.forms import inlineformset_factory
 
@@ -15,15 +14,18 @@ class PessoaFisicaForm(forms.ModelForm):
 class PessoaJuridicaForm(forms.ModelForm):
     class Meta:
         model = PessoaJuridica
-        fields = ['cnpj', 'telefone', 'email']
+        fields = ['nome', 'cnpj', 'telefone', 'email']
         error_messages = {
+            'nome': {'required': 'O nome é obrigatório.'},
             'cnpj': {'required': 'O CNPJ é obrigatório.', 'invalid': 'CNPJ inválido.', 'unique': 'Este CNPJ já está cadastrado.'},
         }
 
+''' desnecessario aparentemente?? "inlineformset_factory já associa o Cliente à PessoaJuridica internamente"???
 class ClientePFForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ['pessoa_fisica']
+'''
 
 class ClientePJForm(forms.ModelForm):
     class Meta:

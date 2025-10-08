@@ -41,7 +41,7 @@ class ClientePFCreateView(TemplateResponseMixin, View):
             self.pessoa = form_pessoa.save()
             formset.instance = self.pessoa
             formset.save()
-            return redirect('pessoas')
+            return redirect('clientes')
         return self.render_to_response({'form_pessoa': form_pessoa, 'formset': formset})
 
 class ClientePJCreateView(TemplateResponseMixin, View):
@@ -65,7 +65,7 @@ class ClientePJCreateView(TemplateResponseMixin, View):
             self.pessoa = form_pessoa.save()
             formset.instance = self.pessoa
             formset.save()
-            return redirect('clientes:list')
+            return redirect('clientes')
         return self.render_to_response({'form_pessoa': form_pessoa, 'formset': formset})
 
 class ClientesPFListView(ListView):

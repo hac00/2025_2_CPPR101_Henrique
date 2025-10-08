@@ -11,9 +11,9 @@
         <legend>Dados da Pessoa Jurídica</legend>
         {{ form_pessoa.non_field_errors }}
         <div>
-            {{ form_pessoa.razao_social.label_tag }}<br>
-            {{ form_pessoa.razao_social }}
-            {{ form_pessoa.razao_social.errors }}
+            {{ form_pessoa.nome.label_tag }}<br>
+            {{ form_pessoa.nome }}
+            {{ form_pessoa.nome.errors }}
         </div>
         <div>
             {{ form_pessoa.cnpj.label_tag }}<br>
@@ -34,12 +34,13 @@
 
     <fieldset>
         <legend>Cliente</legend>
+        {{ formset.management_form }}
         {{ formset.non_form_errors }}
         {% for form in formset.forms %}
             {{ form.id }}
             <div>
                 {{ form.pessoa_juridica.label_tag }}<br>
-                {{ form.pessoa_juridica }}  <!-- será preenchido automaticamente pelo inline -->
+                {{ form.pessoa_juridica }}
                 {{ form.pessoa_juridica.errors }}
             </div>
         {% endfor %}
@@ -48,4 +49,5 @@
     <button class="btn btn-primary" type="submit">Salvar</button>
     <button class="btn btn-danger" type="submit">Cancelar</button>
 </form>
+</div>
 {% endblock %}
